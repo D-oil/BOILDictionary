@@ -1,0 +1,20 @@
+//
+//  PrefixHeader.pch
+//  BOILDictionary
+//
+//  Created by andong on 16/1/23.
+//  Copyright © 2016年 com.AnDong. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "macros.h"
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+Add.h"
+#import "AFNetworking.h"
+
+
+#endif /* PrefixHeader_pch */
