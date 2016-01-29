@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "BaseNavigationController.h"
-#import "ADHomeViewController.h"
+#import "ADXHTabbarViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -20,13 +19,13 @@
     // Override point for customization after application launch.
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
-    ADHomeViewController *homeVC = [[ADHomeViewController alloc]init];
+    ADXHTabbarViewController *DicVC = [[ADXHTabbarViewController alloc]init];
     
-    BaseNavigationController *rootVC = [[BaseNavigationController alloc]initWithRootViewController:homeVC];
+//    BaseNavigationController *rootVC = [[BaseNavigationController alloc]initWithRootViewController:homeVC];
 
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = rootVC;
-    [self.window addSubview:rootVC.view];
+    self.window.rootViewController = DicVC;
+    
     
     [self.window makeKeyAndVisible];
     
@@ -55,5 +54,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+
 
 @end

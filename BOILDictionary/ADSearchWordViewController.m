@@ -7,10 +7,16 @@
 //
 
 #import "ADSearchWordViewController.h"
+#import "ADHomeViewController.h"
+#import "ADWord.h"
 
 @interface ADSearchWordViewController () <UISearchBarDelegate>
 
 @property (nonatomic, strong) UISearchBar *searchBar;
+
+@property (nonatomic, strong) NSArray *WordList;
+
+@property (nonatomic, strong) ADWord *word;
 
 @end
 
@@ -31,13 +37,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setHidesBottomBarWhenPushed:NO];
-    [self.navigationItem setTitle:@"消息"];
+    [self.navigationItem setTitle:@"按字查字典"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
     [self.tableView addGestureRecognizer:tap];
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -50,10 +59,47 @@
     [self.searchBar resignFirstResponder];
 }
 
+//检查字符串中的中文
+-(BOOL)IsChinese:(NSString *)str {
+    for(int i=0; i< [str length];i++)
+    {
+        int a = [str characterAtIndex:i];
+        
+        if( a > 0x4e00 && a < 0x9fff)
+        {
+        return YES;
+        }
+    }
+    return NO;
+}
 
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+
+    //去除首尾的空格
+    NSString *str = [searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    //去除中间的空格
+    NSArray *components = [str componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
+    str = [components componentsJoinedByString:@""];
+    
+    //遍历字符串
+    for(int i =0; i < str.length; i++)
+    {
+        NSLog(@"第%d个字符是:%@",i, [str characterAtIndex:i]);
+        
+        if ([self IsChinese:searchBar.text])
+        {
+            [ADXHDictionaryNet getWordInfo:searchBar.text completeBlock:^(ADCommunication *conn, id data) {
+                self.word = data;
+            }];
+        }
+        
+       
+    }
+
+
     
 }
 

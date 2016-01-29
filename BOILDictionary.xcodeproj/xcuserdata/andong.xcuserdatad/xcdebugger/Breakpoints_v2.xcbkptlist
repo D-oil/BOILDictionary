@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BOILDictionary/ADOneRadicalViewController.m"
-            timestampString = "475491270.908928"
+            filePath = "BOILDictionary/ADXHDictionaryNet.m"
+            timestampString = "475725400.18775"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "-getRadicalfile"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "+getWordInfo:completeBlock:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

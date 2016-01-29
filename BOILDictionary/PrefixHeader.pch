@@ -14,7 +14,17 @@
 #import "macros.h"
 #import "MBProgressHUD.h"
 #import "MBProgressHUD+Add.h"
-#import "AFNetworking.h"
+#import "ADXHDictionaryNet.h"
 
+#import "AFNetworking.h"
+#import "ADDictionaryNet.h"
+#import "UIViewExt.h"
+
+//设置是否调试模式
+#if DEBUG
+#define ADDICLog(xx, ...)  NSLog(@"%s(%d): " xx, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#define ADDICLog(xx, ...)  ((void)0)
+#endif
 
 #endif /* PrefixHeader_pch */

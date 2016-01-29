@@ -7,7 +7,6 @@
 //
 
 #import "ADSearchRadicalViewController.h"
-#import "AFNetworking.h"
 #import "ADRadical.h"
 #import "ADOneRadicalViewController.h"
 
@@ -53,7 +52,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 12;
+    return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -83,46 +82,29 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    switch (section) {
-        case 2:
-            return @"1";
-            break;
-            
-        default:
-            break;
-    }
     return nil;
 }
 
-#pragma mark - NETWORK
+#pragma mark - network
 //开发之初用于获取网络上的笔划数据 (接口已弃用)
 - (void)getRadicalfile
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSString *str = @"http://v.juhe.cn/xhzd/bushou?dtype=json&key=543123d8aa4a7dfe947b2c9e1fbacae2";
     
-    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-    
-    [session POST:str parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",[responseObject valueForKey:@"result"]);
-        
-        NSMutableArray *array = [NSMutableArray array];
-        for (NSDictionary *dic in [responseObject valueForKey:@"result"]) {
-            ADRadical *radical = [[ADRadical alloc]initWithDict:dic];
-            [array addObject:radical];
-        }
-        self.radicalList = array;
+    [ADXHDictionaryNet getRadicalListWithcompleteBlock:^(ADCommunication *conn, id data) {
+        if (conn.success == YES) {
         //归档
         [NSKeyedArchiver archiveRootObject:self.radicalList toFile:PATH_DOCUMENT_FILE(FILENAME)];
-        
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        }
+        else
+        {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [MBProgressHUD showMessag:@"笔画君获取失败" toView:self.view];
+        }
     }];
-
 }
+
 #pragma mark - getting and setting
 
 - (NSArray *)radicalList

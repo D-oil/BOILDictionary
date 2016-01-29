@@ -21,12 +21,15 @@
 #define HEIGHT_CHATBOXVIEW  215
 #define HEIGHT_SEARCHBAR    50
 
+#define MARGIN_WIDTH        10
 #define ZERO                0
 
 #pragma mark - Color
 #define     DEFAULT_NAVBAR_COLOR             ADColor(220, 0, 16, 0.9)
 #define     DEFAULT_BACKGROUND_COLOR         ADColor(238, 216, 187, 1.0)
 #define     DEFAULT_TBABAR_COLOR             ADColor(221, 53, 47, 1.0)
+
+#define     DEFAULT_TEXT_COLOR               ADColor(242 ,67 ,59 , 1.0)
 
 #define     DEFAULT_CHAT_BACKGROUND_COLOR    ADColor(235.0, 235.0, 235.0, 1.0)
 #define     DEFAULT_CHATBOX_COLOR            ADColor(244.0, 244.0, 246.0, 1.0)

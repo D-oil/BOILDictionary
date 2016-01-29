@@ -8,6 +8,7 @@
 
 #import "ADHomeViewController.h"
 #import "ADXHTabbarViewController.h"
+#import "BaseNavigationController.h"
 
 @interface ADHomeViewController ()
 
@@ -38,6 +39,8 @@
 - (void)pushToXHDictionary
 {
     ADXHTabbarViewController *XHVC = [[ADXHTabbarViewController alloc]init];
+    BaseNavigationController *rootVC = [[BaseNavigationController alloc]initWithRootViewController:XHVC];
+    [UIApplication sharedApplication].keyWindow.rootViewController = rootVC;
     [self.navigationController pushViewController:XHVC animated:YES];
 }
 
