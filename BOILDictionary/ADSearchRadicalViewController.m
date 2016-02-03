@@ -9,10 +9,11 @@
 #import "ADSearchRadicalViewController.h"
 #import "ADRadical.h"
 #import "ADOneRadicalViewController.h"
+#import "ADRadicalCell.h"
 
 #define FILENAME @"RadicalFile.plist"
 
-@interface ADSearchRadicalViewController ()
+@interface ADSearchRadicalViewController () <ADRadicalCellDelegate>
 
 @property (nonatomic,strong) NSArray *radicalList;
 
@@ -56,22 +57,30 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.radicalList.count;
+    return 15;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *reuseId = @"radical";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
+    ADRadicalCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
+    NSMutableArray *RadicalsubArray = [NSMutableArray array];
+    
+    for (ADRadical *radical in self.radicalList) {
+        if ([radical.bihua intValue] == indexPath.row+1) {
+            [RadicalsubArray addObject:radical];
+        }
     }
+//    if (cell == nil) {
+        cell = [[ADRadicalCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId WithRadical:RadicalsubArray];
+//    }
     
-    self.radical = self.radicalList[indexPath.row];
-    
-    cell.textLabel.text = self.radical.bushou;
+    cell.delegate = self;
+    [cell setTopLineStyle:CellLineStyleFill];
+    [cell setBottomLineStyle:CellLineStyleFill];
+
     
     //取消默认选中行的颜色
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
@@ -79,10 +88,25 @@
     return cell;
 }
 
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return nil;
+}
+#pragma mark - ADRadicalCellDelegate
+- (void)radicalButton:(UIButton *)radicalBtn WithRaducal:(NSString *)radical
+{
+
+    ADOneRadicalViewController *oneRadicalVC = [[ADOneRadicalViewController alloc]init];
+    oneRadicalVC.radical = radical;
+    [self.navigationController pushViewController:oneRadicalVC animated:YES];
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    ADRadicalCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    return 300;
 }
 
 #pragma mark - network

@@ -8,13 +8,16 @@
 
 #import "ADSearchWordViewController.h"
 #import "ADHomeViewController.h"
+#import "ADShowWordViewController.h"
+#import "ADShowwordCell.h"
+#import "ADTitleView.h"
 #import "ADWord.h"
 
 @interface ADSearchWordViewController () <UISearchBarDelegate>
 
 @property (nonatomic, strong) UISearchBar *searchBar;
 
-@property (nonatomic, strong) NSArray *WordList;
+@property (nonatomic, strong) NSMutableArray *WordList;
 
 @property (nonatomic, strong) ADWord *word;
 
@@ -40,10 +43,7 @@
     [self.navigationItem setTitle:@"按字查字典"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
-    [self.tableView addGestureRecognizer:tap];
-    
+  
 }
 
 
@@ -74,9 +74,14 @@
 }
 
 #pragma mark - UISearchBarDelegate
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [self.WordList removeAllObjects];
+    
+    [self hideKeyboard];
     //去除首尾的空格
     NSString *str = [searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     //去除中间的空格
@@ -84,25 +89,41 @@
     components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
     str = [components componentsJoinedByString:@""];
     
+    NSRange range ;
+    range.length = 1;
     //遍历字符串
     for(int i =0; i < str.length; i++)
     {
-        NSLog(@"第%d个字符是:%@",i, [str characterAtIndex:i]);
-        
-        if ([self IsChinese:searchBar.text])
+        range.location = i;
+
+        if ([self IsChinese:[str substringWithRange:range]])
         {
-            [ADXHDictionaryNet getWordInfo:searchBar.text completeBlock:^(ADCommunication *conn, id data) {
+            
+            [ADXHDictionaryNet getWordInfo:[str substringWithRange:range] completeBlock:^(ADCommunication *conn, id data) {
+  
                 self.word = data;
+                if(self.word != nil){
+                    [self.WordList addObject:self.word];
+                    [self.tableView reloadData];
+                }
+                
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+
             }];
         }
-        
-       
+      
     }
-
-
-    
+ 
 }
+#pragma mark - TableViewDelegate
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.word = self.WordList[indexPath.row];
+    ADShowWordViewController *showWordVC = [[ADShowWordViewController alloc]init];
+    showWordVC.word = self.word;
+    [self.navigationController pushViewController:showWordVC animated:YES];
+}
 
 #pragma mark - TableViewDatesource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -112,21 +133,25 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return self.WordList.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     static NSString *reuseId = @"word";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
+    ADShowwordCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
-    }
+//    if (cell == nil) {
+        cell = [[ADShowwordCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId WithWord:self.WordList[indexPath.row]];
+//    }
+    
+    [cell setTopLineStyle:CellLineStyleFill];
+    [cell setBottomLineStyle:CellLineStyleFill];
     
     //取消默认选中行的颜色
-    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
@@ -141,6 +166,11 @@
     return HEIGHT_SEARCHBAR;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 90;
+}
+
 #pragma mark - getting and setting
 - (UISearchBar *)searchBar
 {
@@ -153,4 +183,14 @@
     }
     return _searchBar;
 }
+
+- (NSMutableArray *)WordList
+{
+    if (_WordList == nil) {
+        _WordList = [NSMutableArray array];
+    }
+    return _WordList;
+}
+
+
 @end

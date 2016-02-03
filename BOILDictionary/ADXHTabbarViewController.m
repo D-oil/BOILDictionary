@@ -30,7 +30,7 @@
     
     BaseNavigationController *searchWordNavC = [[BaseNavigationController alloc] initWithRootViewController:self.searchWordVC];
     BaseNavigationController *searchRadicalNavC = [[BaseNavigationController alloc] initWithRootViewController:self.radicalVC];
-
+    
     [self setViewControllers:@[searchWordNavC,searchRadicalNavC]];
 
 }

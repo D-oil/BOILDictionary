@@ -8,12 +8,15 @@
 
 #import "ADOneRadicalViewController.h"
 #import "ADShowWordViewController.h"
+#import "ADShowwordCell.h"
 #import "ADWord.h"
 
 @interface ADOneRadicalViewController ()
+
 @property (nonatomic,strong)NSArray *words;
 
 @property (nonatomic,strong)ADWord *word;
+
 @end
 
 @implementation ADOneRadicalViewController
@@ -34,11 +37,17 @@
 }
 
 #pragma mark -  tableView delegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ADShowWordViewController *showWordVC = [[ADShowWordViewController alloc]init];
     showWordVC.word = self.words[indexPath.row];
     [self.navigationController pushViewController:showWordVC animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 90;
 }
 
 #pragma mark -  tableView dateSource
@@ -51,16 +60,14 @@
     
     static NSString *reuseId = @"words";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
+    ADShowwordCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
-    }
-    
-    self.word = self.words[indexPath.row];
-    
-    cell.textLabel.text = self.word.zi;
-    
+//    if (cell == nil) {
+        cell = [[ADShowwordCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId WithWord:self.words[indexPath.row]];
+//    }
+    [cell setTopLineStyle:CellLineStyleFill];
+    [cell setBottomLineStyle:CellLineStyleFill];
+
     //取消默认选中行的颜色
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     

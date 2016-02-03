@@ -8,13 +8,13 @@
 
 #import "ADTitleView.h"
 
-#define WORD_WIDTH_HIGHT 80
+#define WORD_WIDTH_HIGHT 70
 
 @interface ADTitleView ()
 
 @property (nonatomic,strong)ADWord *word;
 
-@property (nonatomic,strong) UIView *wordView;
+@property (nonatomic,strong) UIImageView *wordView;
 
 @property (nonatomic,strong) UILabel *wordLabel;
 //拼音label
@@ -59,14 +59,14 @@
     [self.wordView setFrame:CGRectMake(MARGIN_WIDTH, MARGIN_WIDTH, WORD_WIDTH_HIGHT, WORD_WIDTH_HIGHT)];
     [self.wordLabel setFrame:self.wordView.frame];
     
-    frame.origin.x = MARGIN_WIDTH + WORD_WIDTH_HIGHT;
+    frame.origin.x = MARGIN_WIDTH + WORD_WIDTH_HIGHT +10;
     frame.origin.y = 2 * MARGIN_WIDTH;
     frame.size = [self.pinyinLabel.text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20]}];
     
     [self.pinyinLabel setFrame:frame];
     
     
-    frame.origin.x = MARGIN_WIDTH + WORD_WIDTH_HIGHT;
+    frame.origin.x = MARGIN_WIDTH + WORD_WIDTH_HIGHT +10;
     frame.origin.y = self.pinyinLabel.bottom + MARGIN_WIDTH;
     frame.size = [self.radicalLabel.text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}];
     
@@ -89,7 +89,8 @@
 - (UIView *)wordView
 {
     if (_wordView == nil) {
-        _wordView = [[UIView alloc]init];
+        _wordView = [[UIImageView alloc]init];
+        _wordView.image = [UIImage imageNamed:@"tianzige"];
     }
     return _wordView;
 }
@@ -99,7 +100,7 @@
     if (_wordLabel == nil) {
         _wordLabel = [[UILabel alloc]init];
         _wordLabel.text = self.word.zi;
-        _wordLabel.textColor = [UIColor redColor];
+        _wordLabel.textColor = [UIColor blackColor];
         _wordLabel.font = [UIFont systemFontOfSize:40];
         _wordLabel.textAlignment = NSTextAlignmentCenter;
     }

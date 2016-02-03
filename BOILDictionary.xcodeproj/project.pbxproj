@@ -21,6 +21,7 @@
 		762B48211C57463000A4F856 /* RadicalFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 762B48201C57463000A4F856 /* RadicalFile.plist */; };
 		762B48241C57523A00A4F856 /* ADOneRadicalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 762B48231C57523A00A4F856 /* ADOneRadicalViewController.m */; };
 		762B482A1C575F0F00A4F856 /* ADWord.m in Sources */ = {isa = PBXBuildFile; fileRef = 762B48291C575F0F00A4F856 /* ADWord.m */; };
+		763461B31C60AE2400CCE69A /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 763461B21C60AE2400CCE69A /* CommonTableViewCell.m */; };
 		76402EEB1C52289700F84815 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76402EEA1C52289700F84815 /* main.m */; };
 		76402EEE1C52289700F84815 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76402EED1C52289700F84815 /* AppDelegate.m */; };
 		76402F041C52289700F84815 /* BOILDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76402F031C52289700F84815 /* BOILDictionaryTests.m */; };
@@ -39,6 +40,8 @@
 		76A1087F1C536BC200D59370 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A1087A1C536BC200D59370 /* Images.xcassets */; };
 		76A108801C536BC200D59370 /* Mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A1087B1C536BC200D59370 /* Mine.xcassets */; };
 		76A108811C536BC200D59370 /* Weixin.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A1087C1C536BC200D59370 /* Weixin.xcassets */; };
+		76C59FA51C618B4A00406582 /* ADShowwordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C59FA41C618B4A00406582 /* ADShowwordCell.m */; };
+		76C59FA81C61ABE300406582 /* ADRadicalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C59FA71C61ABE300406582 /* ADRadicalCell.m */; };
 		76F3B78B1C59BF46007DD6DA /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F3B78A1C59BF46007DD6DA /* NSString+URL.m */; };
 		76F3B78E1C59DBDC007DD6DA /* ADXHDictionaryNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F3B78D1C59DBDC007DD6DA /* ADXHDictionaryNet.m */; };
 		76F3B7911C59DCAE007DD6DA /* ADCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F3B7901C59DCAE007DD6DA /* ADCommunication.m */; };
@@ -91,6 +94,8 @@
 		762B48231C57523A00A4F856 /* ADOneRadicalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADOneRadicalViewController.m; sourceTree = "<group>"; };
 		762B48281C575F0F00A4F856 /* ADWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADWord.h; sourceTree = "<group>"; };
 		762B48291C575F0F00A4F856 /* ADWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADWord.m; sourceTree = "<group>"; };
+		763461B11C60AE2400CCE69A /* CommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableViewCell.h; sourceTree = "<group>"; };
+		763461B21C60AE2400CCE69A /* CommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewCell.m; sourceTree = "<group>"; };
 		76402EE61C52289700F84815 /* BOILDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BOILDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76402EEA1C52289700F84815 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		76402EEC1C52289700F84815 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,6 +131,10 @@
 		76A1087A1C536BC200D59370 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		76A1087B1C536BC200D59370 /* Mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Mine.xcassets; sourceTree = "<group>"; };
 		76A1087C1C536BC200D59370 /* Weixin.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Weixin.xcassets; sourceTree = "<group>"; };
+		76C59FA31C618B4A00406582 /* ADShowwordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADShowwordCell.h; sourceTree = "<group>"; };
+		76C59FA41C618B4A00406582 /* ADShowwordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADShowwordCell.m; sourceTree = "<group>"; };
+		76C59FA61C61ABE300406582 /* ADRadicalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADRadicalCell.h; sourceTree = "<group>"; };
+		76C59FA71C61ABE300406582 /* ADRadicalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADRadicalCell.m; sourceTree = "<group>"; };
 		76F3B7891C59BF46007DD6DA /* NSString+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URL.h"; sourceTree = "<group>"; };
 		76F3B78A1C59BF46007DD6DA /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
 		76F3B78C1C59DBDC007DD6DA /* ADXHDictionaryNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADXHDictionaryNet.h; sourceTree = "<group>"; };
@@ -228,6 +237,8 @@
 			children = (
 				76A1086C1C53657D00D59370 /* ADSearchWordViewController.h */,
 				76A1086D1C53657D00D59370 /* ADSearchWordViewController.m */,
+				76C59FA31C618B4A00406582 /* ADShowwordCell.h */,
+				76C59FA41C618B4A00406582 /* ADShowwordCell.m */,
 			);
 			name = word;
 			sourceTree = "<group>";
@@ -239,8 +250,19 @@
 				76A108701C53666C00D59370 /* ADSearchRadicalViewController.m */,
 				762B48221C57523A00A4F856 /* ADOneRadicalViewController.h */,
 				762B48231C57523A00A4F856 /* ADOneRadicalViewController.m */,
+				76C59FA61C61ABE300406582 /* ADRadicalCell.h */,
+				76C59FA71C61ABE300406582 /* ADRadicalCell.m */,
 			);
 			name = Radical;
+			sourceTree = "<group>";
+		};
+		763461B01C60AE0800CCE69A /* tableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				763461B11C60AE2400CCE69A /* CommonTableViewCell.h */,
+				763461B21C60AE2400CCE69A /* CommonTableViewCell.m */,
+			);
+			name = tableViewCell;
 			sourceTree = "<group>";
 		};
 		76402EDD1C52289700F84815 = {
@@ -315,6 +337,7 @@
 				76238CDE1C589B4400801CD9 /* Net */,
 				76A108561C53498B00D59370 /* TableviewController */,
 				76A1084C1C53454E00D59370 /* Navigation */,
+				763461B01C60AE0800CCE69A /* tableViewCell */,
 				76A1083A1C533DA400D59370 /* ViewController */,
 			);
 			name = Common;
@@ -590,8 +613,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76C59FA51C618B4A00406582 /* ADShowwordCell.m in Sources */,
 				762B481B1C571FBB00A4F856 /* ADRadical.m in Sources */,
 				762B48241C57523A00A4F856 /* ADOneRadicalViewController.m in Sources */,
+				76C59FA81C61ABE300406582 /* ADRadicalCell.m in Sources */,
 				76A108641C535C4400D59370 /* ADHomeViewController.m in Sources */,
 				76A1084F1C53457000D59370 /* BaseNavigationController.m in Sources */,
 				76F3B7951C59FFDA007DD6DA /* UIViewExt.m in Sources */,
@@ -614,6 +639,7 @@
 				76238CDD1C585F3400801CD9 /* ADTitleView.m in Sources */,
 				762B48151C5707E700A4F856 /* AFSecurityPolicy.m in Sources */,
 				76402EEE1C52289700F84815 /* AppDelegate.m in Sources */,
+				763461B31C60AE2400CCE69A /* CommonTableViewCell.m in Sources */,
 				76238CD81C585A4200801CD9 /* ADShowWordViewController.m in Sources */,
 				762B48141C5707E700A4F856 /* AFNetworkReachabilityManager.m in Sources */,
 				76402EEB1C52289700F84815 /* main.m in Sources */,
@@ -744,7 +770,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AnDong.BOILDictionary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -760,7 +786,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AnDong.BOILDictionary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
