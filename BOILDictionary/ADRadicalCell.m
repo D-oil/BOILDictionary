@@ -19,6 +19,7 @@
 
 @property (nonatomic,strong)UILabel *bihuaLabel;
 
+@property (nonatomic,strong)UIButton *radicalBtn;
 
 @end
 
@@ -42,30 +43,28 @@
     
     for (ADRadical *radical in self.radicalList)
     {
-        UIButton *radicalBtn = [[UIButton alloc]init];
-        
-        [radicalBtn setTitle:radical.bushou forState:UIControlStateNormal];
-        [radicalBtn setTitle:radical.bushou forState:UIControlStateHighlighted];
-        [radicalBtn setTitleColor:ADColor(52, 156, 197, 1) forState:UIControlStateNormal];
-        [radicalBtn setTitleColor:ADColor(52, 156, 197, 1) forState:UIControlStateHighlighted];
-    
-        [radicalBtn setTag:ButtonTag];
-        
-        [radicalBtn setFrame:CGRectMake(60 + ButtonTag * (5+BUTTONWH), 10, BUTTONWH, BUTTONWH)];
+        self.radicalBtn = [[UIButton alloc]init];
+
+        [self.radicalBtn setTitle:radical.bushou forState:UIControlStateNormal];
+        [self.radicalBtn setTitle:radical.bushou forState:UIControlStateHighlighted];
+        [self.radicalBtn setTitleColor:ADColor(52, 156, 197, 1) forState:UIControlStateNormal];
+        [self.radicalBtn setTitleColor:ADColor(52, 156, 197, 1) forState:UIControlStateHighlighted];
+
+        [self.radicalBtn setFrame:CGRectMake(60 + ButtonTag * (5+BUTTONWH), 10, BUTTONWH, BUTTONWH)];
         
         //垃圾代码。。。需重构
-        if (radicalBtn.right > WIDTH_SCREEN) {
-            [radicalBtn setFrame:CGRectMake(10 + (ButtonTag - 7) * (5+BUTTONWH), 50, BUTTONWH, BUTTONWH)];
-            if (radicalBtn.right > WIDTH_SCREEN) {
-                [radicalBtn setFrame:CGRectMake(10 + (ButtonTag - 15) * (5+BUTTONWH), 90, BUTTONWH, BUTTONWH)];
-                if (radicalBtn.right > WIDTH_SCREEN) {
-                    [radicalBtn setFrame:CGRectMake(10 + (ButtonTag - 23) * (5+BUTTONWH), 130, BUTTONWH, BUTTONWH)];
-                    if (radicalBtn.right > WIDTH_SCREEN) {
-                        [radicalBtn setFrame:CGRectMake(10 + (ButtonTag - 31) * (5+BUTTONWH), 170, BUTTONWH, BUTTONWH)];
-                        if (radicalBtn.right > WIDTH_SCREEN) {
-                            [radicalBtn setFrame:CGRectMake(10 + (ButtonTag - 39) * (5+BUTTONWH), 210, BUTTONWH, BUTTONWH)];
-                            if (radicalBtn.right > WIDTH_SCREEN) {
-                                [radicalBtn setFrame:CGRectMake(10 + (ButtonTag - 47) * (5+BUTTONWH), 250, BUTTONWH, BUTTONWH)];
+        if (self.radicalBtn.right > WIDTH_SCREEN) {
+            [self.radicalBtn setFrame:CGRectMake(10 + (ButtonTag - 7) * (5+BUTTONWH), 50, BUTTONWH, BUTTONWH)];
+            if (self.radicalBtn.right > WIDTH_SCREEN) {
+                [self.radicalBtn setFrame:CGRectMake(10 + (ButtonTag - 15) * (5+BUTTONWH), 90, BUTTONWH, BUTTONWH)];
+                if (self.radicalBtn.right > WIDTH_SCREEN) {
+                    [self.radicalBtn setFrame:CGRectMake(10 + (ButtonTag - 23) * (5+BUTTONWH), 130, BUTTONWH, BUTTONWH)];
+                    if (self.radicalBtn.right > WIDTH_SCREEN) {
+                        [self.radicalBtn setFrame:CGRectMake(10 + (ButtonTag - 31) * (5+BUTTONWH), 170, BUTTONWH, BUTTONWH)];
+                        if (self.radicalBtn.right > WIDTH_SCREEN) {
+                            [self.radicalBtn setFrame:CGRectMake(10 + (ButtonTag - 39) * (5+BUTTONWH), 210, BUTTONWH, BUTTONWH)];
+                            if (self.radicalBtn.right > WIDTH_SCREEN) {
+                                [self.radicalBtn setFrame:CGRectMake(10 + (ButtonTag - 47) * (5+BUTTONWH), 250, BUTTONWH, BUTTONWH)];
                             }
                         }
                     }
@@ -73,9 +72,9 @@
             }
         }
         
-        [radicalBtn addTarget:self action:@selector(radicalAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.radicalBtn addTarget:self action:@selector(radicalAction:) forControlEvents:UIControlEventTouchUpInside];
         
-        [self.contentView addSubview:radicalBtn];
+        [self.contentView addSubview:self.radicalBtn];
         
         ButtonTag ++;
     }

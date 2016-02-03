@@ -19,6 +19,8 @@
 
 @property (nonatomic,strong) ADRadical *radical;
 
+@property (nonatomic,strong) NSMutableArray *RadicalsubArray;
+
 @end
 
 @implementation ADSearchRadicalViewController
@@ -40,15 +42,38 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma mark -  tableView delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    ADOneRadicalViewController *oneRadicalVC = [[ADOneRadicalViewController alloc]init];
-    oneRadicalVC.radical = cell.textLabel.text;
-    [self.navigationController pushViewController:oneRadicalVC animated:YES];
+    if (self.RadicalsubArray.count <= 7)
+    {
+        return 70;
+    }
+    else if(self.RadicalsubArray.count <= 15)
+    {
+        return 100;
+    }
+    else if(self.RadicalsubArray.count <= 23)
+    {
+        return 150;
+    }
+    else if(self.RadicalsubArray.count <= 31)
+    {
+        return 190;
+    }
+    else if(self.RadicalsubArray.count <= 39)
+    {
+        return 230;
+    }
+    else if(self.RadicalsubArray.count <= 47)
+    {
+        return 270;
+    }
+    else if(self.RadicalsubArray.count <= 55)
+    {
+        return 300;
+    }
+    return 0;
 }
-
 #pragma mark -  tableView dateSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -66,24 +91,32 @@
     
     ADRadicalCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
     
-    NSMutableArray *RadicalsubArray = [NSMutableArray array];
+    self.RadicalsubArray = [NSMutableArray array];
     
     for (ADRadical *radical in self.radicalList) {
         if ([radical.bihua intValue] == indexPath.row+1) {
-            [RadicalsubArray addObject:radical];
+            [self.RadicalsubArray addObject:radical];
         }
     }
 //    if (cell == nil) {
-        cell = [[ADRadicalCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId WithRadical:RadicalsubArray];
+        cell = [[ADRadicalCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId WithRadical:self.RadicalsubArray];
 //    }
     
     cell.delegate = self;
     [cell setTopLineStyle:CellLineStyleFill];
     [cell setBottomLineStyle:CellLineStyleFill];
-
     
+//    NSMutableArray *arr = [NSMutableArray array];
+//    for (UIView *view in cell.contentView.subviews) {
+//        if ([view isKindOfClass:[UIButton class]]) {
+//            [arr addObject:view];
+//        }
+//    }
+//    UIButton *lastBtn = [arr lastObject];
+//    
+//    cell.contentView.height = lastBtn.frame.origin.y + 10;
     //取消默认选中行的颜色
-    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
@@ -100,13 +133,6 @@
     oneRadicalVC.radical = radical;
     [self.navigationController pushViewController:oneRadicalVC animated:YES];
     
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //    ADRadicalCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    return 300;
 }
 
 #pragma mark - network
