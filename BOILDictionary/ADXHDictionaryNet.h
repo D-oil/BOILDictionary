@@ -17,5 +17,11 @@
 + (void)getSingleRadicalList:(NSString *)radical completeBlock:(void(^)(ADCommunication *conn,id data))block;
 //获取汉字对应的信息
 + (void)getWordInfo:(NSString *)word completeBlock:(void(^)(ADCommunication *conn,id data))block;
+//获取拼音列表
++ (void)getPinyinListWithcompleteBlock:(void(^)(ADCommunication *conn,id data))block;
+//获取拼音对应的汉字列表
++ (void)getSinglepinyinList:(NSString *)pinyin completeBlock:(void(^)(ADCommunication *conn,id data))block;
 
+//查成语
++ (void)getChengyu:(NSString *)chengyu completeBlock:(void(^)(ADCommunication *conn,id data))block;
 @end

@@ -22,7 +22,10 @@
     [self.view setBackgroundColor:DEFAULT_BACKGROUND_COLOR];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [[UINavigationBar appearance] setBarTintColor:DEFAULT_NAVBAR_COLOR];
+    
+
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -21,6 +21,8 @@
 
 @property (nonatomic, strong) ADWord *word;
 
+@property (nonatomic, strong) NSMutableArray *printWordList;
+
 @end
 
 @implementation ADSearchWordViewController
@@ -37,16 +39,22 @@
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setHidesBottomBarWhenPushed:NO];
-    [self.navigationItem setTitle:@"按字查字典"];
+    [self.navigationItem setTitle:@"新华字典"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-  
+    
+
+    
 }
 
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self hideKeyboard];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -65,7 +73,7 @@
     {
         int a = [str characterAtIndex:i];
         
-        if( a > 0x4e00 && a < 0x9fff)
+        if( a >= 0x4e00 && a <= 0x9fff)
         {
         return YES;
         }
@@ -73,12 +81,26 @@
     return NO;
 }
 
+-(BOOL)isRepeat:(NSString *)wordstr
+{
+    BOOL repeat = false;
+    for (NSString *str in self.printWordList) {
+        if ([wordstr isEqualToString:str]) {
+            repeat = YES;
+        }
+        else
+        {
+            repeat = NO;
+        }
+        
+    }
+    return repeat;
+}
+
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
+{  
     [self.WordList removeAllObjects];
     
     [self hideKeyboard];
@@ -89,7 +111,7 @@
     components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
     str = [components componentsJoinedByString:@""];
     
-    NSRange range ;
+    NSRange range;
     range.length = 1;
     //遍历字符串
     for(int i =0; i < str.length; i++)
@@ -98,30 +120,40 @@
 
         if ([self IsChinese:[str substringWithRange:range]])
         {
-            
-            [ADXHDictionaryNet getWordInfo:[str substringWithRange:range] completeBlock:^(ADCommunication *conn, id data) {
-  
-                self.word = data;
-                if(self.word != nil){
-                    [self.WordList addObject:self.word];
-                    [self.tableView reloadData];
-                }
-                
-                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 
-            }];
+            if ([self isRepeat:[str substringWithRange:range]] == YES)
+            {
+                
+            }
+            else
+            {
+                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                
+                [ADXHDictionaryNet getWordInfo:[str substringWithRange:range] completeBlock:^(ADCommunication *conn, id data) {
+                    
+                    self.word = data;
+                    if(self.word != nil){
+                        [self.WordList addObject:self.word];
+                        [self.tableView reloadData];
+                    }
+                    
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    
+                }];
+            }
+             [self.printWordList addObject:[str substringWithRange:range]];
+            
         }
       
     }
- 
 }
 #pragma mark - TableViewDelegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.word = self.WordList[indexPath.row];
     ADShowWordViewController *showWordVC = [[ADShowWordViewController alloc]init];
     showWordVC.word = self.word;
+    showWordVC.title = self.word.zi;
     [self.navigationController pushViewController:showWordVC animated:YES];
 }
 
@@ -147,11 +179,14 @@
         cell = [[ADShowwordCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId WithWord:self.WordList[indexPath.row]];
 //    }
     
+
     [cell setTopLineStyle:CellLineStyleFill];
     [cell setBottomLineStyle:CellLineStyleFill];
     
     //取消默认选中行的颜色
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
@@ -192,5 +227,12 @@
     return _WordList;
 }
 
+- (NSMutableArray *)printWordList
+{
+    if (_printWordList == nil) {
+        _printWordList = [NSMutableArray array];
+    }
+    return _printWordList;
+}
 
 @end

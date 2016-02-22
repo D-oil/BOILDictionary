@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		760EA46F1C741CFB007A06C8 /* ADWordDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EA46E1C741CFB007A06C8 /* ADWordDetail.m */; };
+		760EA4731C7472FB007A06C8 /* CTFrameParserConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EA4721C7472FB007A06C8 /* CTFrameParserConfig.m */; };
+		760EA4761C74730C007A06C8 /* CoreTextDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EA4751C74730C007A06C8 /* CoreTextDate.m */; };
+		760EA4791C747320007A06C8 /* CTFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EA4781C747320007A06C8 /* CTFrameParser.m */; };
+		760EA47C1C74736D007A06C8 /* CTDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EA47B1C74736D007A06C8 /* CTDisplayView.m */; };
 		76238CD81C585A4200801CD9 /* ADShowWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76238CD71C585A4200801CD9 /* ADShowWordViewController.m */; };
 		76238CDD1C585F3400801CD9 /* ADTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76238CDC1C585F3400801CD9 /* ADTitleView.m */; };
 		76238CE11C589CA500801CD9 /* ADDictionaryNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 76238CE01C589CA500801CD9 /* ADDictionaryNet.m */; };
@@ -26,6 +31,10 @@
 		76402EEE1C52289700F84815 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76402EED1C52289700F84815 /* AppDelegate.m */; };
 		76402F041C52289700F84815 /* BOILDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76402F031C52289700F84815 /* BOILDictionaryTests.m */; };
 		76402F0F1C52289700F84815 /* BOILDictionaryUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76402F0E1C52289700F84815 /* BOILDictionaryUITests.m */; };
+		7687D2CD1C756B14005EECC5 /* ADWordAboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7687D2CC1C756B14005EECC5 /* ADWordAboutView.m */; };
+		7687D2D41C75B276005EECC5 /* ADSearchPinyinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7687D2D31C75B276005EECC5 /* ADSearchPinyinViewController.m */; };
+		7687D2D71C75B43E005EECC5 /* ADPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 7687D2D61C75B43E005EECC5 /* ADPinyin.m */; };
+		7687D2DB1C75BE46005EECC5 /* PinyinFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7687D2DA1C75BE46005EECC5 /* PinyinFile.plist */; };
 		76A1083D1C533DB900D59370 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A1083C1C533DB900D59370 /* BaseViewController.m */; };
 		76A108441C5340AE00D59370 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A108431C5340AE00D59370 /* MBProgressHUD.m */; };
 		76A1084F1C53457000D59370 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A1084E1C53457000D59370 /* BaseNavigationController.m */; };
@@ -40,6 +49,7 @@
 		76A1087F1C536BC200D59370 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A1087A1C536BC200D59370 /* Images.xcassets */; };
 		76A108801C536BC200D59370 /* Mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A1087B1C536BC200D59370 /* Mine.xcassets */; };
 		76A108811C536BC200D59370 /* Weixin.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A1087C1C536BC200D59370 /* Weixin.xcassets */; };
+		76BF26521C76FC800006A0FD /* ADPYindex.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BF26511C76FC800006A0FD /* ADPYindex.m */; };
 		76C59FA51C618B4A00406582 /* ADShowwordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C59FA41C618B4A00406582 /* ADShowwordCell.m */; };
 		76C59FA81C61ABE300406582 /* ADRadicalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C59FA71C61ABE300406582 /* ADRadicalCell.m */; };
 		76F3B78B1C59BF46007DD6DA /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F3B78A1C59BF46007DD6DA /* NSString+URL.m */; };
@@ -66,6 +76,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		760EA46D1C741CFB007A06C8 /* ADWordDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADWordDetail.h; sourceTree = "<group>"; };
+		760EA46E1C741CFB007A06C8 /* ADWordDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADWordDetail.m; sourceTree = "<group>"; };
+		760EA4711C7472FB007A06C8 /* CTFrameParserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFrameParserConfig.h; sourceTree = "<group>"; };
+		760EA4721C7472FB007A06C8 /* CTFrameParserConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFrameParserConfig.m; sourceTree = "<group>"; };
+		760EA4741C74730C007A06C8 /* CoreTextDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextDate.h; sourceTree = "<group>"; };
+		760EA4751C74730C007A06C8 /* CoreTextDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextDate.m; sourceTree = "<group>"; };
+		760EA4771C747320007A06C8 /* CTFrameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFrameParser.h; sourceTree = "<group>"; };
+		760EA4781C747320007A06C8 /* CTFrameParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFrameParser.m; sourceTree = "<group>"; };
+		760EA47A1C74736D007A06C8 /* CTDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTDisplayView.h; sourceTree = "<group>"; };
+		760EA47B1C74736D007A06C8 /* CTDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTDisplayView.m; sourceTree = "<group>"; };
 		76238CD61C585A4200801CD9 /* ADShowWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADShowWordViewController.h; sourceTree = "<group>"; };
 		76238CD71C585A4200801CD9 /* ADShowWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADShowWordViewController.m; sourceTree = "<group>"; };
 		76238CDB1C585F3400801CD9 /* ADTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTitleView.h; sourceTree = "<group>"; };
@@ -107,6 +127,13 @@
 		76402F0A1C52289700F84815 /* BOILDictionaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BOILDictionaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76402F0E1C52289700F84815 /* BOILDictionaryUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BOILDictionaryUITests.m; sourceTree = "<group>"; };
 		76402F101C52289700F84815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7687D2CB1C756B14005EECC5 /* ADWordAboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADWordAboutView.h; sourceTree = "<group>"; };
+		7687D2CC1C756B14005EECC5 /* ADWordAboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADWordAboutView.m; sourceTree = "<group>"; };
+		7687D2D21C75B276005EECC5 /* ADSearchPinyinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADSearchPinyinViewController.h; sourceTree = "<group>"; };
+		7687D2D31C75B276005EECC5 /* ADSearchPinyinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADSearchPinyinViewController.m; sourceTree = "<group>"; };
+		7687D2D51C75B43E005EECC5 /* ADPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADPinyin.h; sourceTree = "<group>"; };
+		7687D2D61C75B43E005EECC5 /* ADPinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADPinyin.m; sourceTree = "<group>"; };
+		7687D2DA1C75BE46005EECC5 /* PinyinFile.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = PinyinFile.plist; sourceTree = "<group>"; };
 		76A1083B1C533DB900D59370 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		76A1083C1C533DB900D59370 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		76A108401C533E6B00D59370 /* macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
@@ -131,6 +158,8 @@
 		76A1087A1C536BC200D59370 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		76A1087B1C536BC200D59370 /* Mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Mine.xcassets; sourceTree = "<group>"; };
 		76A1087C1C536BC200D59370 /* Weixin.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Weixin.xcassets; sourceTree = "<group>"; };
+		76BF26501C76FC800006A0FD /* ADPYindex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADPYindex.h; sourceTree = "<group>"; };
+		76BF26511C76FC800006A0FD /* ADPYindex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADPYindex.m; sourceTree = "<group>"; };
 		76C59FA31C618B4A00406582 /* ADShowwordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADShowwordCell.h; sourceTree = "<group>"; };
 		76C59FA41C618B4A00406582 /* ADShowwordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADShowwordCell.m; sourceTree = "<group>"; };
 		76C59FA61C61ABE300406582 /* ADRadicalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADRadicalCell.h; sourceTree = "<group>"; };
@@ -170,9 +199,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		760EA4701C741D17007A06C8 /* CoreText */ = {
+			isa = PBXGroup;
+			children = (
+				760EA4711C7472FB007A06C8 /* CTFrameParserConfig.h */,
+				760EA4721C7472FB007A06C8 /* CTFrameParserConfig.m */,
+				760EA4741C74730C007A06C8 /* CoreTextDate.h */,
+				760EA4751C74730C007A06C8 /* CoreTextDate.m */,
+				760EA4771C747320007A06C8 /* CTFrameParser.h */,
+				760EA4781C747320007A06C8 /* CTFrameParser.m */,
+				760EA47A1C74736D007A06C8 /* CTDisplayView.h */,
+				760EA47B1C74736D007A06C8 /* CTDisplayView.m */,
+			);
+			name = CoreText;
+			sourceTree = "<group>";
+		};
 		76238CD91C585EC000801CD9 /* ShowWord */ = {
 			isa = PBXGroup;
 			children = (
+				760EA4701C741D17007A06C8 /* CoreText */,
 				76238CDA1C585F0900801CD9 /* Views */,
 				76238CD61C585A4200801CD9 /* ADShowWordViewController.h */,
 				76238CD71C585A4200801CD9 /* ADShowWordViewController.m */,
@@ -185,6 +230,10 @@
 			children = (
 				76238CDB1C585F3400801CD9 /* ADTitleView.h */,
 				76238CDC1C585F3400801CD9 /* ADTitleView.m */,
+				760EA46D1C741CFB007A06C8 /* ADWordDetail.h */,
+				760EA46E1C741CFB007A06C8 /* ADWordDetail.m */,
+				7687D2CB1C756B14005EECC5 /* ADWordAboutView.h */,
+				7687D2CC1C756B14005EECC5 /* ADWordAboutView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -228,6 +277,10 @@
 				762B481A1C571FBB00A4F856 /* ADRadical.m */,
 				762B48281C575F0F00A4F856 /* ADWord.h */,
 				762B48291C575F0F00A4F856 /* ADWord.m */,
+				7687D2D51C75B43E005EECC5 /* ADPinyin.h */,
+				7687D2D61C75B43E005EECC5 /* ADPinyin.m */,
+				76BF26501C76FC800006A0FD /* ADPYindex.h */,
+				76BF26511C76FC800006A0FD /* ADPYindex.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -303,6 +356,7 @@
 		76402EE91C52289700F84815 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7687D2DA1C75BE46005EECC5 /* PinyinFile.plist */,
 				762B48201C57463000A4F856 /* RadicalFile.plist */,
 				76A108771C536BB700D59370 /* Image */,
 				76A108751C536B2500D59370 /* Assets.xcassets */,
@@ -329,6 +383,15 @@
 				76402F101C52289700F84815 /* Info.plist */,
 			);
 			path = BOILDictionaryUITests;
+			sourceTree = "<group>";
+		};
+		7687D2D11C75B1E5005EECC5 /* pinyin */ = {
+			isa = PBXGroup;
+			children = (
+				7687D2D21C75B276005EECC5 /* ADSearchPinyinViewController.h */,
+				7687D2D31C75B276005EECC5 /* ADSearchPinyinViewController.m */,
+			);
+			name = pinyin;
 			sourceTree = "<group>";
 		};
 		76A108391C533D8F00D59370 /* Common */ = {
@@ -450,6 +513,7 @@
 		76A108721C53667500D59370 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				7687D2D11C75B1E5005EECC5 /* pinyin */,
 				762B48251C57524200A4F856 /* word */,
 				762B48261C57525400A4F856 /* Radical */,
 			);
@@ -583,6 +647,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A1087D1C536BC200D59370 /* Discover.xcassets in Resources */,
+				7687D2DB1C75BE46005EECC5 /* PinyinFile.plist in Resources */,
 				76A1087F1C536BC200D59370 /* Images.xcassets in Resources */,
 				762B48211C57463000A4F856 /* RadicalFile.plist in Resources */,
 				76A108761C536B2500D59370 /* Assets.xcassets in Resources */,
@@ -613,8 +678,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76BF26521C76FC800006A0FD /* ADPYindex.m in Sources */,
 				76C59FA51C618B4A00406582 /* ADShowwordCell.m in Sources */,
 				762B481B1C571FBB00A4F856 /* ADRadical.m in Sources */,
+				7687D2D41C75B276005EECC5 /* ADSearchPinyinViewController.m in Sources */,
 				762B48241C57523A00A4F856 /* ADOneRadicalViewController.m in Sources */,
 				76C59FA81C61ABE300406582 /* ADRadicalCell.m in Sources */,
 				76A108641C535C4400D59370 /* ADHomeViewController.m in Sources */,
@@ -628,21 +695,28 @@
 				762B48171C5707E700A4F856 /* AFURLResponseSerialization.m in Sources */,
 				76A108711C53666C00D59370 /* ADSearchRadicalViewController.m in Sources */,
 				762B48161C5707E700A4F856 /* AFURLRequestSerialization.m in Sources */,
+				7687D2CD1C756B14005EECC5 /* ADWordAboutView.m in Sources */,
 				762B48131C5707E700A4F856 /* AFHTTPSessionManager.m in Sources */,
 				76A108671C53608000D59370 /* ADXHTabbarViewController.m in Sources */,
+				7687D2D71C75B43E005EECC5 /* ADPinyin.m in Sources */,
 				762B48181C5707E700A4F856 /* AFURLSessionManager.m in Sources */,
 				76F3B78E1C59DBDC007DD6DA /* ADXHDictionaryNet.m in Sources */,
 				76A108551C53498200D59370 /* BaseTableViewController.m in Sources */,
 				76A1086E1C53657D00D59370 /* ADSearchWordViewController.m in Sources */,
+				760EA4731C7472FB007A06C8 /* CTFrameParserConfig.m in Sources */,
 				762B481F1C57448E00A4F856 /* MBProgressHUD+Add.m in Sources */,
 				76F3B7911C59DCAE007DD6DA /* ADCommunication.m in Sources */,
 				76238CDD1C585F3400801CD9 /* ADTitleView.m in Sources */,
 				762B48151C5707E700A4F856 /* AFSecurityPolicy.m in Sources */,
+				760EA47C1C74736D007A06C8 /* CTDisplayView.m in Sources */,
 				76402EEE1C52289700F84815 /* AppDelegate.m in Sources */,
 				763461B31C60AE2400CCE69A /* CommonTableViewCell.m in Sources */,
+				760EA4761C74730C007A06C8 /* CoreTextDate.m in Sources */,
 				76238CD81C585A4200801CD9 /* ADShowWordViewController.m in Sources */,
 				762B48141C5707E700A4F856 /* AFNetworkReachabilityManager.m in Sources */,
+				760EA46F1C741CFB007A06C8 /* ADWordDetail.m in Sources */,
 				76402EEB1C52289700F84815 /* main.m in Sources */,
+				760EA4791C747320007A06C8 /* CTFrameParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

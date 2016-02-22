@@ -37,6 +37,15 @@
         case REQUEST_GET_XINHUA_WORDINFO:
             str = [NSString stringWithFormat:@"http://v.juhe.cn/xhzd/query"];
             break;
+        case REQUEST_GET_XINHUA_PINYIN:
+            str = [NSString stringWithFormat:@"http://v.juhe.cn/xhzd/pinyin?dtype=&key=543123d8aa4a7dfe947b2c9e1fbacae2"];
+            break;
+        case REQUEST_GET_XINHUA_SINGLEPINYIN:
+            str = [NSString stringWithFormat:@"http://v.juhe.cn/xhzd/querypy"];
+            break;
+        case REQUEST_GET_CHENGYU_SINGLECHENGYU:
+            str = [NSString stringWithFormat:@"http://v.juhe.cn/chengyu/query"];
+            break;
         default:
             break;
     }

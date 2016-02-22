@@ -29,6 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setHidesBottomBarWhenPushed:NO];
+    [self.navigationItem setTitle:@"部首查询"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     //解档笔画数据
@@ -130,9 +131,9 @@
 {
 
     ADOneRadicalViewController *oneRadicalVC = [[ADOneRadicalViewController alloc]init];
-    oneRadicalVC.radical = radical;
+    oneRadicalVC.searchWord = radical;
     [self.navigationController pushViewController:oneRadicalVC animated:YES];
-    
+    oneRadicalVC.title = [NSString stringWithFormat:@"部首:%@",radical];
 }
 
 #pragma mark - network
@@ -142,7 +143,9 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [ADXHDictionaryNet getRadicalListWithcompleteBlock:^(ADCommunication *conn, id data) {
-        if (conn.success == YES) {
+        if (conn.success == YES){
+            
+        self.radicalList = data;
         //归档
         [NSKeyedArchiver archiveRootObject:self.radicalList toFile:PATH_DOCUMENT_FILE(FILENAME)];
         [MBProgressHUD hideHUDForView:self.view animated:YES];

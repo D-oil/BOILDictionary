@@ -10,11 +10,15 @@
 #import "BaseNavigationController.h"
 #import "ADSearchWordViewController.h"
 #import "ADSearchRadicalViewController.h"
+#import "ADSearchPinyinViewController.h"
+
 @interface ADXHTabbarViewController ()
 
 @property (nonatomic,strong) ADSearchWordViewController *searchWordVC;
 
 @property (nonatomic,strong) ADSearchRadicalViewController *radicalVC;
+
+@property (nonatomic,strong) ADSearchPinyinViewController *pinyinVC;
 
 @end
 
@@ -30,8 +34,8 @@
     
     BaseNavigationController *searchWordNavC = [[BaseNavigationController alloc] initWithRootViewController:self.searchWordVC];
     BaseNavigationController *searchRadicalNavC = [[BaseNavigationController alloc] initWithRootViewController:self.radicalVC];
-    
-    [self setViewControllers:@[searchWordNavC,searchRadicalNavC]];
+    BaseNavigationController *searchPinyinNavC = [[BaseNavigationController alloc]initWithRootViewController:self.pinyinVC];
+    [self setViewControllers:@[searchWordNavC,searchPinyinNavC,searchRadicalNavC]];
 
 }
 
@@ -62,4 +66,16 @@
     }
     return _radicalVC;
 }
+
+- (ADSearchPinyinViewController *)pinyinVC
+{
+    if (_pinyinVC == nil) {
+        _pinyinVC = [[ADSearchPinyinViewController alloc]init];
+        [_pinyinVC.tabBarItem setTitle:@"按拼音搜索"];
+        [_pinyinVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_mainframe"]];
+        [_pinyinVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_mainframeHL"]];
+    }
+    return _pinyinVC;
+}
+
 @end

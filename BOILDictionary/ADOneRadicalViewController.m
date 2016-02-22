@@ -24,11 +24,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setHidesBottomBarWhenPushed:NO];
+//    [self setHidesBottomBarWhenPushed:NO];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    [self getWords];
+    //如果是pinyin就调用拼音接口否则调用笔画接口
+    if ([self.type isEqualToString:@"pinyin"])
+    {
+        [self getWordsWithPinyin];
+    }else
+    {
+        [self getWordsWithRadical];
+    }
+    
+
+
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,8 +52,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ADShowWordViewController *showWordVC = [[ADShowWordViewController alloc]init];
+    self.word = self.words[indexPath.row];
     showWordVC.word = self.words[indexPath.row];
     [self.navigationController pushViewController:showWordVC animated:YES];
+    showWordVC.title = self.word.zi;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,17 +83,18 @@
 
     //取消默认选中行的颜色
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
 
 
 #pragma mark - NETWORK
-- (void)getWords
+- (void)getWordsWithRadical
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    [ADXHDictionaryNet getSingleRadicalList:self.radical completeBlock:^(ADCommunication *conn, id data) {
+    [ADXHDictionaryNet getSingleRadicalList:self.searchWord completeBlock:^(ADCommunication *conn, id data) {
         if (conn.success == YES) {
             
             self.words = data;
@@ -96,6 +110,28 @@
         
     }];
 }
+
+- (void)getWordsWithPinyin
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [ADXHDictionaryNet getSinglepinyinList:self.searchWord completeBlock:^(ADCommunication *conn, id data) {
+        if (conn.success == YES) {
+            
+            self.words = data;
+            
+            [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }
+        else
+        {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD showError:@"获取失败" toView:self.view];
+        }
+        
+    }];
+}
+
 #pragma mark - getting and setting
 - (NSArray *)words
 {

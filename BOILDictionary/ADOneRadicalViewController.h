@@ -10,6 +10,8 @@
 
 @interface ADOneRadicalViewController : BaseTableViewController
 
-@property (nonatomic,strong) NSString *radical;
+@property (nonatomic,strong) NSString *searchWord;
+
+@property (nonatomic,strong) NSString *type;
 
 @end
